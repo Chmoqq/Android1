@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Lesson1</string>
+    <string name="hello_dev">Hello Developers!</string>
+    <string name="hello_students">Hello students!</string>
+    <string name="change_text">Change text</string>
+    <string name="activity_text">Activity button</string>
+    <string name="cardio_button">Cardio button</string>
+    <string name="ruslan">Руслан</string>
+    <string name="kirill">Kirill</string>
+    <string name="my_lesson">My first lesson!</string>
+</resources>
