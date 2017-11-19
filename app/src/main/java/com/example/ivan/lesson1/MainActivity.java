@@ -1,5 +1,6 @@
 package com.example.ivan.lesson1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "Нажата кнопка", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, StrengthListActivity.class);
+                startActivity(intent);
             }
         });
         cardioButton.setOnClickListener(new View.OnClickListener() {
