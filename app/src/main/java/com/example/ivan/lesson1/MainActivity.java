@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.ivan.lesson1.ActivityButton.StrengthListActivity;
+import com.example.ivan.lesson1.CardioButton.CardioActivity;
+
 public class MainActivity extends AppCompatActivity {
     Button activityButton;
     Button cardioButton;
@@ -37,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "нажата кнопка Кирэк", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, CardioActivity.class);
+                startActivity(intent);
             }
         });
     }
