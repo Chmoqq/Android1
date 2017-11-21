@@ -30,14 +30,14 @@ public class WorkoutList {
 
     private void initWorkoutList() {
         workouts = new ArrayList<>();
-        workouts.add(new Workout(R.string.pushups, R.string.pushups_description, 0));
-        workouts.add(new Workout(R.string.pullups, R.string.pullups_description, 0));
-        workouts.add(new Workout(R.string.twist_on_the_floor, R.string.twist_on_the_floor_description, 0));
-        workouts.add(new Workout(R.string.twisting_with_turning, R.string.twisting_with_turning_description, 0));
-        workouts.add(new Workout(R.string.twisting_on_the_bench, R.string.twisting_on_the_bench_description, 0));
-        workouts.add(new Workout(R.string.twisting_on_the_block, R.string.twisting_on_the_block_description, 0));
-        workouts.add(new Workout(R.string.lateral_twisting, R.string.lateral_twisting_description, 0));
-        workouts.add(new Workout(R.string.back_torsion, R.string.back_torsion_description, 0));
+        workouts.add(new Workout(R.string.extension_of_arms_in_slope, R.string.extension_of_arms_in_slope_description, 0, R.drawable.work1));
+        workouts.add(new Workout(R.string.Extension_of_arms_from_behind_the_head, R.string.Extension_of_arms_from_behind_the_head_description, 0, R.drawable.work2));
+        workouts.add(new Workout(R.string.reverse_pushups, R.string.reverse_pushups_description, 0, R.drawable.work3));
+        workouts.add(new Workout(R.string.french_pushups_from_head_behind, R.string.french_pushups_from_head_behind_description, 0, R.drawable.work4));
+        workouts.add(new Workout(R.string.Extension_of_the_arm_from_the_chest_lying_down, R.string.Extension_of_the_arm_from_the_chest_lying_down_description, 0, R.drawable.work5));
+        workouts.add(new Workout(R.string.Pushups_with_a_narrow_setting_of_hands, R.string.Pushups_with_a_narrow_setting_of_hands_description, 0, R.drawable.work6));
+        workouts.add(new Workout(R.string.Hand_bending, R.string.Hand_bending_description, 0, R.drawable.work7));
+        workouts.add(new Workout(R.string.Hand_to_hand, R.string.Hand_to_hand_description, 0, R.drawable.work8));
     }
 
     private void addWorkout(Workout workout) {

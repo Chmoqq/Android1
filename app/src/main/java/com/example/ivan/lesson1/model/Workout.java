@@ -8,6 +8,7 @@ public class Workout {
     int title;
     int description;
     int repCount;
+    int image;
 
     public int getTitle() {
         return title;
@@ -15,6 +16,10 @@ public class Workout {
 
     public int getDescription() {
         return description;
+    }
+
+    public int getImage() {
+        return image;
     }
 
     public int getRepCount() {
@@ -26,9 +31,10 @@ public class Workout {
     }
 
 
-    public Workout(int title, int description, int repCount) {
+    public Workout(int title, int description, int repCount, int image) {
         this.title = title;
         this.description = description;
         this.repCount = repCount;
+        this.image = image;
     }
 }
