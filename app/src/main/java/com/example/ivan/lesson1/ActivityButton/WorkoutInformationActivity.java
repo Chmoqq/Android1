@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ivan.lesson1.R;
@@ -38,6 +39,8 @@ public class WorkoutInformationActivity extends AppCompatActivity {
 
         workOutTitle.setText(workout.getTitle());
         workOutDescription.setText(workout.getDescription());
+        ImageView workoutImage = findViewById(R.id.workout_image_view);
+        workoutImage.setImageResource(workout.getImage());
 
     }
 
