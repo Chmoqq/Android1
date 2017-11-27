@@ -4,19 +4,38 @@ package com.example.ivan.lesson1.ActivityButton;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.ivan.lesson1.MainActivity;
 import com.example.ivan.lesson1.R;
 import com.example.ivan.lesson1.model.Workout;
 import com.example.ivan.lesson1.model.WorkoutList;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class StrengthListActivity extends AppCompatActivity {
+    String TAG = "StrengthListActivity";
+    List<View> childs = new ArrayList<>();
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        List<Workout> workoutList = WorkoutList.getInstance().getWorkouts();
+        for (int i = 0; i < workoutList.size(); i++) {
+            Workout w = workoutList.get(i);
+
+            if (w.getCompletedCount() > 0)
+                ((TextView)childs.get(i).findViewById(R.id.last_approach_view)).setText(String.format("Последний подход %d раз", w.getLastWorkout()));
+        }
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,6 +48,7 @@ public class StrengthListActivity extends AppCompatActivity {
         for (int i = 0; i < workoutList.size(); i++) {
             Workout w = workoutList.get(i);
             View child = View.inflate(this, R.layout.single_workout, null);
+            childs.add(child);
 
             // сеттеры
             ((TextView)child.findViewById(R.id.list_item_title_text_view1)).setText(w.getTitle());
@@ -40,6 +60,7 @@ public class StrengthListActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     WorkoutInformationActivity.start(StrengthListActivity.this, index);
+                    Log.d(TAG, "Workout " + index + " clicked");
                 }
             });
 

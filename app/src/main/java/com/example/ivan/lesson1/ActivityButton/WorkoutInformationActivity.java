@@ -4,8 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ivan.lesson1.R;
 import com.example.ivan.lesson1.model.Workout;
@@ -16,31 +20,42 @@ import java.util.List;
 
 public class WorkoutInformationActivity extends AppCompatActivity {
     private static final String WORKOUT_INDEX_KEY = "Index";
-    int workout_number = 0;
-    List<Workout> workouts;
 
     private TextView workOutTitle;
     private TextView workOutDescription;
+    private Button startWorkoutBTN;
+    private Spinner workoutCount;
+    int count;
+
+    private Workout currentWorkout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_information);
+        startWorkoutBTN = findViewById(R.id.workout_button);
+        workoutCount = findViewById(R.id.workout_count);
 
-        workouts = WorkoutList.getInstance().getWorkouts();
+        currentWorkout = WorkoutList.getInstance().getWorkouts().get(
+                getIntent().getExtras().getInt(WORKOUT_INDEX_KEY)
+        );
+        startWorkoutBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(WorkoutInformationActivity.this, "Workout started", Toast.LENGTH_SHORT).show();
+                count = Integer.parseInt(workoutCount.getSelectedItem().toString());
+                currentWorkout.completed(count);
+            }
+        });
 
         workOutTitle = findViewById(R.id.workout_title_text_view);
         workOutDescription = findViewById(R.id.workout_description_text_view);
 
-        Intent intent = getIntent();
-        workout_number = intent.getExtras().getInt(WORKOUT_INDEX_KEY);
-
-        Workout workout = workouts.get(workout_number);
-
-        workOutTitle.setText(workout.getTitle());
-        workOutDescription.setText(workout.getDescription());
+        workOutTitle.setText(currentWorkout.getTitle());
+        workOutDescription.setText(currentWorkout.getDescription());
         ImageView workoutImage = findViewById(R.id.workout_image_view);
-        workoutImage.setImageResource(workout.getImage());
+        workoutImage.setImageResource(currentWorkout.getImage());
 
     }
 

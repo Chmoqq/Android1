@@ -7,4 +7,12 @@
         Donec bibendum fringilla risus ultrices mattis. Ut non mi tristique, molestie felis nec, sollicitudin nunc. Etiam et egestas diam. Morbi ornare quam quis fermentum tempus. Mauris auctor convallis sem, nec ultricies odio eleifend et. Nam venenatis mi quis justo scelerisque, ac convallis velit tempor. Curabitur pretium mi id tortor euismod laoreet. Suspendisse eget elit dictum, tempus ipsum id, elementum elit.
         Nullam tincidunt fermentum lobortis. Mauris luctus, urna tristique tristique lacinia, orci dui tempor dui, sit amet rutrum eros mauris ut sem. Nullam venenatis lorem ut massa feugiat, vel mattis velit finibus. Pellentesque vitae consectetur magna. Mauris ipsum ipsum, consequat nec pharetra vel, egestas at sem. Aliquam lacinia arcu sem, sed dignissim mi dictum nec. Cras tempor mauris eu ipsum tempor, eu mollis ex facilisis. Curabitur id tellus fringilla, fringilla leo vel, euismod justo. Nam pulvinar at ipsum ut luctus.</string>
     <string name="cardio_page">In progress!</string>
+    <string-array name="workout_count_values">
+        <item name = "ten">10</item>
+        <item name = "fifteen">15</item>
+        <item name = "twenty">20</item>
+        <item name = "fifty">50</item>
+    </string-array>
+    <string name="start_workout">Start workout</string>
+    <string name="last_approach">Последний подход</string>
 </resources>
