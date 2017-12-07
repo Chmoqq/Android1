@@ -36,8 +36,7 @@ public class StrengthListActivity extends AppCompatActivity {
             Workout w = workoutList.get(i);
 
             if (w.getCompletedCount() > 0) {
-//                ((TextView) children.get(i).findViewById(R.id.last_approach_view)).setText(String.format("Последний подход %d раз", w.getLastWorkout()));
-                   children.get(i).recordTextView.setText(String.format("Последний подход %d раз", w.getLastWorkout()));
+                children.get(i).recordTextView.setText(String.format("Последний подход %d раз", w.getLastWorkout()));
             } else {
                 continue;
             }

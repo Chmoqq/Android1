@@ -11,6 +11,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.example.ivan.lesson1.R;
 import com.example.ivan.lesson1.model.Workout;
 import com.example.ivan.lesson1.model.WorkoutList;
@@ -43,6 +45,10 @@ public class WorkoutInformationActivity extends AppCompatActivity {
         startWorkoutBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                YoYo.with(Techniques.Shake)
+                        .duration(500)
+                        .repeat(0)
+                        .playOn(findViewById(R.id.workout_button));
                 Toast.makeText(WorkoutInformationActivity.this, "Workout started", Toast.LENGTH_SHORT).show();
                 count = Integer.parseInt(workoutCount.getSelectedItem().toString());
                 currentWorkout.completed(count);
