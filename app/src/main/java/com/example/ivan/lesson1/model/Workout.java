@@ -30,13 +30,13 @@ public class Workout {
         return image;
     }
 
-    public int getRepCount() {
-        return repCount;
-    }
-
-    public void setRepCount(int repCount) {
-        this.repCount = repCount;
-    }
+//    public int getRepCount() {
+//        return repCount;
+//    }
+//
+//    public void setRepCount(int repCount) {
+//        this.repCount = repCount;
+//    }
 
     public int getCompletedCount() { return this.completedCount; }
 
