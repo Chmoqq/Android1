@@ -30,17 +30,7 @@ public class StrengthListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        List<Workout> workoutList = WorkoutList.getInstance().getWorkouts();
-        for (int i = 0; i < workoutList.size(); i++) {
-            Workout w = workoutList.get(i);
-
-            if (w.getCompletedCount() > 0) {
-                children.get(i).recordTextView.setText(String.format("Последний подход %d раз", w.getLastWorkout()));
-            } else {
-                continue;
-            }
-        }
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -75,12 +65,14 @@ public class StrengthListActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(StrengthWorkoutViewHolder holder, final int position) {
             children.add(holder);
-            holder.imageView.setImageResource(workouts.get(position).getImage());
-            holder.titleTextView.setText(workouts.get(position).getTitle());
-            if (workouts.get(position).getLastWorkout() == 0) {
+
+            Workout w = workouts.get(position);
+            holder.imageView.setImageResource(w.getImage());
+            holder.titleTextView.setText(w.getTitle());
+            if (w.getLastWorkout() == 0) {
                 holder.recordTextView.setText("0");
             } else {
-                holder.recordTextView.setText(workouts.get(position).getLastWorkout());
+                holder.recordTextView.setText(String.format("Последний подход %d раз", w.getLastWorkout()));
             }
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -1,4 +1,4 @@
-package com.example.ivan.lesson1;
+package com.example.ivan.lesson1.Fragments;
 
 import android.content.Intent;
 import android.support.annotation.Nullable;
@@ -14,6 +14,7 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.example.ivan.lesson1.ActivityButton.StrengthListActivity;
 import com.example.ivan.lesson1.CardioButton.CardioActivity;
+import com.example.ivan.lesson1.R;
 
 public class FragmentMenu extends Fragment {
     Button activityButton;

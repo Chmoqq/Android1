@@ -15,4 +15,7 @@
     </string-array>
     <string name="start_workout">Start workout</string>
     <string name="last_approach">Последний подход</string>
+    <string name="res">Reset</string>
+    <string name="str">Start</string>
+    <string name="stp">Stop</string>
 </resources>

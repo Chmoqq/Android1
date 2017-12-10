@@ -3,6 +3,7 @@ package com.example.ivan.lesson1.ActivityButton;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.example.ivan.lesson1.Fragments.FragmentImage;
+import com.example.ivan.lesson1.Fragments.TimerFragment;
 import com.example.ivan.lesson1.R;
 import com.example.ivan.lesson1.model.Workout;
 import com.example.ivan.lesson1.model.WorkoutList;
@@ -27,9 +30,11 @@ public class WorkoutInformationActivity extends AppCompatActivity {
     private TextView workOutDescription;
     private Button startWorkoutBTN;
     private Spinner workoutCount;
+    public static Workout currentWorkout;
+    private TimerFragment timerFragment;
+    private FragmentImage fragmentImage;
+    private FragmentManager manager;
     int count;
-
-    private Workout currentWorkout;
 
 
     @Override
@@ -42,6 +47,7 @@ public class WorkoutInformationActivity extends AppCompatActivity {
         currentWorkout = WorkoutList.getInstance().getWorkouts().get(
                 getIntent().getExtras().getInt(WORKOUT_INDEX_KEY)
         );
+        manager = getSupportFragmentManager();
         startWorkoutBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +58,8 @@ public class WorkoutInformationActivity extends AppCompatActivity {
                 Toast.makeText(WorkoutInformationActivity.this, "Workout started", Toast.LENGTH_SHORT).show();
                 count = Integer.parseInt(workoutCount.getSelectedItem().toString());
                 currentWorkout.completed(count);
+                timerFragment = new TimerFragment();
+                manager.beginTransaction().replace(R.id.workout_container, timerFragment).commit();
             }
         });
 
@@ -60,8 +68,8 @@ public class WorkoutInformationActivity extends AppCompatActivity {
 
         workOutTitle.setText(currentWorkout.getTitle());
         workOutDescription.setText(currentWorkout.getDescription());
-        ImageView workoutImage = findViewById(R.id.workout_image_view);
-        workoutImage.setImageResource(currentWorkout.getImage());
+        fragmentImage = new FragmentImage();
+        manager.beginTransaction().add(R.id.workout_container, fragmentImage).commit();
 
     }
 
