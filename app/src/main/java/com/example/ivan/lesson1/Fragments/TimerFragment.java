@@ -73,10 +73,9 @@ public class TimerFragment extends Fragment implements View.OnClickListener {
                 if (running) {
                     seconds++;
                 }
-                int hours = seconds / 3600;
-                int minutes = (seconds % 3600) / 60;
-                int secs = seconds % 60;
-                int miliSecs = (seconds % 60) / 60;
+                long hours = seconds / 3600;
+                long minutes = (seconds % 3600) / 60;
+                long secs = seconds % 60;
                 String time = String.format("%d:%02d:%02d", hours, minutes, secs);
                 timeView.setText(time);
                 handler.postDelayed(this, 1000);
