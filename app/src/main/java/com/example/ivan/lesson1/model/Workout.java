@@ -12,9 +12,6 @@ public class Workout {
         return lastWorkout;
     }
 
-    public void setLastWorkout(int lastWorkout) {
-        this.lastWorkout = lastWorkout;
-    }
 
     int lastWorkout;
 
@@ -30,15 +27,6 @@ public class Workout {
         return image;
     }
 
-//    public int getRepCount() {
-//        return repCount;
-//    }
-//
-//    public void setRepCount(int repCount) {
-//        this.repCount = repCount;
-//    }
-
-    public int getCompletedCount() { return this.completedCount; }
 
     public void completed(int lastWorkout) {
         this.completedCount += 1;
