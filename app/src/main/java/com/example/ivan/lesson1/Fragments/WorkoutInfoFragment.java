@@ -44,22 +44,22 @@ public class WorkoutInfoFragment extends Fragment {
         manager = getActivity().getSupportFragmentManager();
         if (WorkoutInformationActivity.isOrientationCheck()) {
             currentWorkout = WorkoutList.getInstance().getWorkouts().get(getActivity().getIntent().getExtras().getInt(WorkoutInformationActivity.getWorkoutIndexKey()));
-        } else if (WorkoutInformationActivity.getPositionWorkout() != 0){
+        } else if (WorkoutInformationActivity.getPositionWorkout() != 0) {
             currentWorkout = workouts.get(WorkoutInformationActivity.getPositionWorkout());
         } else {
-                currentWorkout = workouts.get(0);
+            currentWorkout = workouts.get(0);
         }
-            workoutCount = workoutInfo.findViewById(R.id.workout_count);
-            workOutTitle = workoutInfo.findViewById(R.id.workout_title_text_view);
-            workOutDescription = workoutInfo.findViewById(R.id.workout_description_text_view);
+        workoutCount = workoutInfo.findViewById(R.id.workout_count);
+        workOutTitle = workoutInfo.findViewById(R.id.workout_title_text_view);
+        workOutDescription = workoutInfo.findViewById(R.id.workout_description_text_view);
 
-            workOutTitle.setText(currentWorkout.getTitle());
-            workOutDescription.setText(currentWorkout.getDescription());
-            initUI(workoutInfo);
-            manager.beginTransaction().add(R.id.workout_container, fragmentImage).commit();
+        workOutTitle.setText(currentWorkout.getTitle());
+        workOutDescription.setText(currentWorkout.getDescription());
+        initUI(workoutInfo);
+        manager.beginTransaction().add(R.id.workout_container, fragmentImage).commit();
 
-            return workoutInfo;
-        }
+        return workoutInfo;
+    }
 
     private void initUI(final View workoutInfo) {
         startWorkoutBTN = workoutInfo.findViewById(R.id.workout_button);
